@@ -15,7 +15,7 @@
     IsNotNull="true"
     ColumnName="ROLE_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="ROLES"
     PrimaryKey="true"/>

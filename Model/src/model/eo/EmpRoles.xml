@@ -9,13 +9,18 @@
   DBObjectType="table"
   DBObjectName="EMP_ROLES"
   AliasName="EmpRoles"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.eo.EmpRolesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="Id"
     IsNotNull="true"
     ColumnName="ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="EMP_ROLES"
     PrimaryKey="true"/>
@@ -24,7 +29,7 @@
     IsNotNull="true"
     ColumnName="ROLE_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="EMP_ROLES"/>
   <Attribute
@@ -32,7 +37,7 @@
     IsNotNull="true"
     ColumnName="EMP_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="EMP_ROLES"/>
   <AccessorAttribute

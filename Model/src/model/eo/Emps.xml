@@ -15,7 +15,7 @@
     IsNotNull="true"
     ColumnName="EMP_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     TableName="EMPS"
     PrimaryKey="true"/>
