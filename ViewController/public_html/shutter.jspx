@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="shutter.jspx" id="d1">
+            <af:form id="f1">
+                <af:button text="button 1" id="b1" actionListener="#{MainBean.addToList}" partialTriggers="sms1"/>
+                <af:selectManyShuttle label="Label 1" value="#{MainBean.SItems}"
+                                      valueChangeListener="#{MainBean.onChange}" id="sms1" autoSubmit="true"
+                                      partialTriggers="b1">
+                    <f:selectItems value="#{MainBean.allItems}" id="si1"/>
+                </af:selectManyShuttle>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
