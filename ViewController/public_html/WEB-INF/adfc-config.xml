@@ -3,8 +3,8 @@
   <view id="shutter">
     <page>/shutter.jspx</page>
   </view>
-  <view id="manySelection">
-    <page>/manySelection.jspx</page>
+  <view id="mSelection">
+    <page>/mSelection.jspx</page>
   </view>
   <managed-bean id="__1">
     <managed-bean-name>MainBean</managed-bean-name>

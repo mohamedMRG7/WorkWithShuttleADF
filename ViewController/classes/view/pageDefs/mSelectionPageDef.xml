@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="manySelectionPageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="mSelectionPageDef"
                 Package="view.pageDefs">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="EmpsVO" RangeSize="25" DataControl="AppModuleDataControl" id="EmpsVOIterator"/>
-    <iterator Binds="EmpRolesVO" RangeSize="25" DataControl="AppModuleDataControl" id="EmpRolesVOIterator"/>
+    <iterator id="EmpRolesVOIterator" Binds="EmpRolesVO" DataControl="AppModuleDataControl" RangeSize="25"/>
+    <iterator id="RolesVOIterator" Binds="RolesVO" DataControl="AppModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="EmpsVOIterator" id="EmpId">
@@ -27,14 +28,6 @@
     <action IterBinding="EmpsVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="EmpsVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
     <action IterBinding="EmpsVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
-    <list IterBinding="EmpRolesVOIterator" ListOperMode="multiSelect" ListIter="EmpRolesVOIterator" id="EmpRolesVO"
-          SelectItemValueMode="ListObject">
-      <AttrNames>
-        <Item Value="Id"/>
-      </AttrNames>
-      <ListDisplayAttrNames>
-        <Item Value="RoleId"/>
-      </ListDisplayAttrNames>
-    </list>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

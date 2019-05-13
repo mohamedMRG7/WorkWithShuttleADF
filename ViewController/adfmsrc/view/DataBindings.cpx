@@ -3,11 +3,11 @@
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
   <pageMap>
     <page path="/shutter.jspx" usageId="view_shutterPageDef"/>
-    <page path="/manySelection.jspx" usageId="view_manySelectionPageDef"/>
+    <page path="/mSelection.jspx" usageId="view_mSelectionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_shutterPageDef" path="view.pageDefs.shutterPageDef"/>
-    <page id="view_manySelectionPageDef" path="view.pageDefs.manySelectionPageDef"/>
+    <page id="view_mSelectionPageDef" path="view.pageDefs.mSelectionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model.module"

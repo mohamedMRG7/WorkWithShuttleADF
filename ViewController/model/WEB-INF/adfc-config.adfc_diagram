@@ -18,18 +18,18 @@
          name="x">388.0</property>
    </View>
    <View
-      id="View3">
+      id="View4">
       <property
-         name="activityId">manySelection</property>
+         name="activityId">mSelection</property>
       <property
-         name="page">/manySelection.jspx</property>
+         name="page">/mSelection.jspx</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>manySelection&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>mSelection&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">130.24707</property>
+         name="y">146.29883</property>
       <property
-         name="x">674.0</property>
+         name="x">629.0</property>
    </View>
 </SDM>
