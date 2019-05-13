@@ -8,30 +8,18 @@
   InheritPersonalization="merge"
   ClearCacheOnRollback="true">
   <ViewUsage
-    Name="EmpRolesView1"
-    ViewObjectName="model.vo.EmpRolesView"/>
-  <ViewUsage
-    Name="EmpsView1"
-    ViewObjectName="model.vo.EmpsView"/>
-  <ViewUsage
-    Name="RolesView1"
+    Name="RolesVO"
     ViewObjectName="model.vo.RolesView"/>
   <ViewUsage
-    Name="EmpRolesView2"
-    ViewObjectName="model.vo.EmpRolesView"/>
+    Name="EmpsVO"
+    ViewObjectName="model.vo.EmpsView"/>
   <ViewUsage
-    Name="EmpRolesView3"
+    Name="EmpRolesVO"
     ViewObjectName="model.vo.EmpRolesView"/>
   <ViewLinkUsage
     Name="EmpIdFkLink1"
     ViewLinkObjectName="model.vl.EmpIdFkLink"
-    SrcViewUsageName="model.module.AppModule.EmpsView1"
-    DstViewUsageName="model.module.AppModule.EmpRolesView2"
-    Reversed="false"/>
-  <ViewLinkUsage
-    Name="RoleIdFkLink1"
-    ViewLinkObjectName="model.vl.RoleIdFkLink"
-    SrcViewUsageName="model.module.AppModule.RolesView1"
-    DstViewUsageName="model.module.AppModule.EmpRolesView3"
+    SrcViewUsageName="model.module.AppModule.EmpsVO"
+    DstViewUsageName="model.module.AppModule.EmpRolesVO"
     Reversed="false"/>
 </AppModule>
