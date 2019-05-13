@@ -28,5 +28,6 @@
     <action IterBinding="EmpsVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
     <action IterBinding="EmpsVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
     <action IterBinding="EmpsVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
   </bindings>
 </pageDefinition>

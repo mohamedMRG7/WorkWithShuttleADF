@@ -11,14 +11,19 @@ import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
 
+import oracle.binding.AttributeBinding;
+
+import oracle.binding.OperationBinding;
+
 import oracle.jbo.Row;
+import oracle.jbo.domain.Number;
 
 public class MainBean {
-    List sItems;
+    List<Integer> sItems;
     List allItems;
     String x="";
     public MainBean() {
-        sItems=new ArrayList();
+        
     }
 
     public void setSItems(List sItems) {
@@ -26,6 +31,7 @@ public class MainBean {
     }
 
     public List getSItems() {
+        if(sItems==null)
         sItems=getRolesForEmp();
         return sItems;
     }
@@ -78,14 +84,46 @@ public class MainBean {
         return;
         
         sItems = (ArrayList) valueChangeEvent.getNewValue();
-        System.out.println(sItems.size());
+        
        
     }
-
+    
+    
+    public Integer getCurrentEmpId() {
+        BindingContext ctx=BindingContext.getCurrent();
+        DCBindingContainer bc = (DCBindingContainer) ctx.getCurrentBindingsEntry();
+        AttributeBinding attr = (AttributeBinding)bc.findCtrlBinding("EmpId");
+        Integer empId = (Integer)attr.getInputValue();
+        return empId;
+    }
     public void saveChanges(ActionEvent actionEvent) {
         // Add event code here...
-       
+        DCIteratorBinding iter=getIterator("EmpRolesVOIterator");
+        for(Row row:iter.getAllRowsInRange())
+            row.remove();
         
+        for(Integer roleID :sItems){
+            Row row=iter.getRowSetIterator().createRow();
+            row.setAttribute("EmpId", getCurrentEmpId());
+            row.setAttribute("RoleId", roleID);
+            iter.getRowSetIterator().insertRow(row);
+            }
         
+       excuteOperation("Commit");
+        
+    }
+    
+    public void excuteOperation(String operationID)
+    {
+            BindingContext ctx=BindingContext.getCurrent();
+            DCBindingContainer bc = (DCBindingContainer) ctx.getCurrentBindingsEntry();
+            OperationBinding operation = bc.getOperationBinding(operationID);
+            operation.execute();
+        }
+
+    public String resetSelectedList() {
+        // Add event code here...
+        setSItems(null);
+        return null;
     }
 }

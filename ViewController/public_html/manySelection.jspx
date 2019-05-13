@@ -3,7 +3,7 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="shutter.jspx" id="d1">
+        <af:document title="manySelection.jspx" id="d1">
             <af:messages id="m1"/>
             <af:form id="f1">
                 <af:panelFormLayout id="pfl1">
@@ -33,26 +33,21 @@
                     <f:facet name="footer">
                         <af:panelGroupLayout layout="horizontal" id="pgl1">
                             <af:button actionListener="#{bindings.First.execute}" text="First"
-                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b2"
-                                       action="#{MainBean.resetSelectedList}"/>
+                                       disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
                             <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b3"
-                                       action="#{MainBean.resetSelectedList}"/>
+                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
                             <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b4"
-                                       action="#{MainBean.resetSelectedList}"/>
+                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
                             <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b5"
-                                       action="#{MainBean.resetSelectedList}"/>
+                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:panelFormLayout>
-                <af:selectManyShuttle label="Label 1" value="#{MainBean.SItems}"
-                                      valueChangeListener="#{MainBean.onChange}" id="sms1" autoSubmit="true"
-                                      partialTriggers="b1 b2 b3 b4 b5">
-                    <f:selectItems value="#{MainBean.allItems}" id="si1"/>
-                </af:selectManyShuttle>
-                <af:button text="Commit" id="b1" partialTriggers="sms1" actionListener="#{MainBean.saveChanges}"/>
+                <af:selectManyCheckbox value="#{bindings.EmpRolesVO.inputValue}" label="#{bindings.EmpRolesVO.label}"
+                                       id="smc1">
+                    <f:selectItems value="#{bindings.EmpRolesVO.items}" id="si1"/>
+                    <f:validator binding="#{bindings.EmpRolesVO.validator}"/>
+                </af:selectManyCheckbox>
             </af:form>
         </af:document>
     </f:view>
