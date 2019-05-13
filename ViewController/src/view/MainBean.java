@@ -7,6 +7,12 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
+
+import oracle.jbo.Row;
+
 public class MainBean {
     List sItems;
     List allItems;
@@ -31,22 +37,39 @@ public class MainBean {
     }
 
     public List getAllItems() {
-        allItems=new ArrayList();
-        allItems.add(new SelectItem(2,"ahmed"));
+        if(allItems==null)
+            allItems=getAllRolesFromItert();
         return allItems;
     }
 
 
     public void addToList(ActionEvent actionEvent) {
         // Add event code here...
-        sItems.add(2);
+       
         
     }
 
+    public List<SelectItem> getAllRolesFromItert()
+    {
+        DCIteratorBinding roleIterator=getIterator("RolesVOIterator");
+        List<SelectItem> selectItems = new ArrayList<SelectItem>();
+        for (Row row : roleIterator.getAllRowsInRange()) {
+            selectItems.add(new SelectItem(row.getAttribute("RoleId"),
+                                           (String)row.getAttribute("Role")));
+        }
+        return selectItems;
+    }
+    
+    
+    public DCIteratorBinding getIterator(String iteratorID)
+    {
+            BindingContext ctx=BindingContext.getCurrent();
+            DCBindingContainer bc = (DCBindingContainer) ctx.getCurrentBindingsEntry();
+            DCIteratorBinding iter = bc.findIteratorBinding(iteratorID);
+            return iter;
+        }
     public void onChange(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
-        sItems.add(2);
-        System.out.println(valueChangeEvent.getNewValue()+" "+sItems.size());
-        
+        System.out.println(valueChangeEvent.getOldValue()+" "+valueChangeEvent.getNewValue());
     }
 }
