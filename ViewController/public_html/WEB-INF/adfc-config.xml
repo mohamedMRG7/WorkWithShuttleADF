@@ -6,6 +6,6 @@
   <managed-bean id="__1">
     <managed-bean-name>MainBean</managed-bean-name>
     <managed-bean-class>view.MainBean</managed-bean-class>
-    <managed-bean-scope>request</managed-bean-scope>
+    <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
 </adfc-config>

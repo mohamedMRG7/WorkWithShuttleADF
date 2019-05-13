@@ -43,12 +43,12 @@
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:panelFormLayout>
-                <af:button text="button 1" id="b1" actionListener="#{MainBean.addToList}" partialTriggers="sms1"/>
                 <af:selectManyShuttle label="Label 1" value="#{MainBean.SItems}"
                                       valueChangeListener="#{MainBean.onChange}" id="sms1" autoSubmit="true"
-                                      partialTriggers="b1">
+                                      partialTriggers="b1 b2 b3 b4 b5">
                     <f:selectItems value="#{MainBean.allItems}" id="si1"/>
                 </af:selectManyShuttle>
+                <af:button text="Commit" id="b1" partialTriggers="sms1" actionListener="#{MainBean.saveChanges}"/>
             </af:form>
         </af:document>
     </f:view>

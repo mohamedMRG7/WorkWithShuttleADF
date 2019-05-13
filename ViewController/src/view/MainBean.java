@@ -16,12 +16,9 @@ import oracle.jbo.Row;
 public class MainBean {
     List sItems;
     List allItems;
+    String x="";
     public MainBean() {
         sItems=new ArrayList();
-       
-     
-
-
     }
 
     public void setSItems(List sItems) {
@@ -29,6 +26,7 @@ public class MainBean {
     }
 
     public List getSItems() {
+        sItems=getRolesForEmp();
         return sItems;
     }
 
@@ -39,15 +37,12 @@ public class MainBean {
     public List getAllItems() {
         if(allItems==null)
             allItems=getAllRolesFromItert();
+        
         return allItems;
     }
 
-
-    public void addToList(ActionEvent actionEvent) {
-        // Add event code here...
-       
-        
-    }
+    
+   
 
     public List<SelectItem> getAllRolesFromItert()
     {
@@ -60,6 +55,15 @@ public class MainBean {
         return selectItems;
     }
     
+    public List<Integer> getRolesForEmp()
+    {
+      DCIteratorBinding iter=getIterator("EmpRolesVOIterator");
+      List<Integer> rolesForCurrentEmp = new ArrayList<Integer>();
+        for (Row row : iter.getAllRowsInRange()) {
+            rolesForCurrentEmp.add((Integer)row.getAttribute("RoleId"));
+        }
+    return rolesForCurrentEmp;
+    }
     
     public DCIteratorBinding getIterator(String iteratorID)
     {
@@ -70,6 +74,18 @@ public class MainBean {
         }
     public void onChange(ValueChangeEvent valueChangeEvent) {
         // Add event code here...
-        System.out.println(valueChangeEvent.getOldValue()+" "+valueChangeEvent.getNewValue());
+        if(valueChangeEvent.getOldValue()==valueChangeEvent.getNewValue())
+        return;
+        
+        sItems = (ArrayList) valueChangeEvent.getNewValue();
+        System.out.println(sItems.size());
+       
+    }
+
+    public void saveChanges(ActionEvent actionEvent) {
+        // Add event code here...
+       
+        
+        
     }
 }
