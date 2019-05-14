@@ -49,10 +49,35 @@
                 </af:panelFormLayout>
                 <af:selectManyShuttle label="Label 1" value="#{MainBean.SItems}"
                                       valueChangeListener="#{MainBean.onChange}" id="sms1" autoSubmit="true"
-                                      partialTriggers="b1 b2 b3 b4 b5">
+                                      partialTriggers="b2 b3 b4 b5 b1 f1 b7">
                     <f:selectItems value="#{MainBean.allItems}" id="si1"/>
                 </af:selectManyShuttle>
                 <af:button text="Commit" id="b1" partialTriggers="sms1" actionListener="#{MainBean.saveChanges}"/>
+                <af:button text="Add Role" id="b6"
+                           disabled="#{!bindings.CreateInsert.enabled}"
+                           action="#{bindings.CreateInsert.execute}" actionListener="#{MainBean.addRole}"/>
+                <af:panelFormLayout id="pfl2" rendered="#{MainBean.enableAddRole}" binding="#{MainBean.addRoleForm}">
+                    <af:inputText value="#{bindings.RoleId.inputValue}" label="#{bindings.RoleId.hints.label}"
+                                  required="#{bindings.RoleId.hints.mandatory}"
+                                  columns="#{bindings.RoleId.hints.displayWidth}"
+                                  maximumLength="#{bindings.RoleId.hints.precision}"
+                                  shortDesc="#{bindings.RoleId.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.RoleId.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.RoleId.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Role.inputValue}" label="#{bindings.Role.hints.label}"
+                                  required="#{bindings.Role.hints.mandatory}"
+                                  columns="#{bindings.Role.hints.displayWidth}"
+                                  maximumLength="#{bindings.Role.hints.precision}"
+                                  shortDesc="#{bindings.Role.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.Role.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <af:button text="Add" id="b7"
+                                   disabled="#{!bindings.Commit.enabled}" actionListener="#{MainBean.addRole_action}"/>
+                    </f:facet>
+                </af:panelFormLayout>
+                <af:button text="ManyChoiceCheckBox" id="b8" action="#{MainBean.toManySelect}"/>
             </af:form>
         </af:document>
     </f:view>

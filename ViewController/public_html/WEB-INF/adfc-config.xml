@@ -6,6 +6,20 @@
   <view id="mSelection">
     <page>/mSelection.jspx</page>
   </view>
+  <control-flow-rule id="__2">
+    <from-activity-id>shutter</from-activity-id>
+    <control-flow-case id="__3">
+      <from-outcome>next</from-outcome>
+      <to-activity-id>mSelection</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__4">
+    <from-activity-id>mSelection</from-activity-id>
+    <control-flow-case id="__5">
+      <from-outcome>back</from-outcome>
+      <to-activity-id>shutter</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
   <managed-bean id="__1">
     <managed-bean-name>MainBean</managed-bean-name>
     <managed-bean-class>view.MainBean</managed-bean-class>

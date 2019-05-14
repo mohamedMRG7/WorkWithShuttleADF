@@ -9,7 +9,12 @@
   DBObjectType="table"
   DBObjectName="ROLES"
   AliasName="Roles"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  RowClass="model.eo.RolesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
   <Attribute
     Name="RoleId"
     IsNotNull="true"

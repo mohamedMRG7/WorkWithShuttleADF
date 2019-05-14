@@ -22,7 +22,8 @@
     PrecisionRule="true"
     EntityAttrName="RoleId"
     EntityUsage="Roles"
-    AliasName="ROLE_ID"/>
+    AliasName="ROLE_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="Role"
     IsUnique="true"

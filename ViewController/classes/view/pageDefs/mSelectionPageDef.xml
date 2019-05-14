@@ -29,5 +29,16 @@
     <action IterBinding="EmpsVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
     <action IterBinding="EmpsVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
     <action id="Commit" DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="RolesVOIterator" id="RoleId">
+      <AttrNames>
+        <Item Value="RoleId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RolesVOIterator" id="Role">
+      <AttrNames>
+        <Item Value="Role"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RolesVOIterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

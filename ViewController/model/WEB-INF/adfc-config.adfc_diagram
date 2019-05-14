@@ -32,4 +32,24 @@
       <property
          name="x">629.0</property>
    </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View4">
+      <property
+         name="fromOutcome">next</property>
+      <property
+         name="sdm:polyPoints">R46,429.0,143.44824,587.97797,142.44824,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View4"
+      to="View2">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L54,588.0,149.44824,429.022,150.44824,R54</property>
+   </ControlFlowCase>
 </SDM>
